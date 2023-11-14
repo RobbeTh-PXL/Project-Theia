@@ -3,8 +3,8 @@
 
 ## Mythology
 Theia is known as the goddess of sight. <br>
-Many Greeks believe that her eyes were beams of light known to provide insight to mortals, <br>
-thus the symbol associated with Theia is her eyes.
+Many Greeks believe that her eyes were beams of light known to provide insight to mortals.
+*Blindness in our case ~ potato potato*
 
 ## Mininum Viable Product
 - Eye Detection:
