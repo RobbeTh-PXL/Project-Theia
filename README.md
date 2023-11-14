@@ -6,7 +6,7 @@ Theia is known as the goddess of sight. <br>
 Many Greeks believe that her eyes were beams of light known to provide insight to mortals. <br>
 *Blindness in our case ~ potato potato*
 
-## Mininum Viable Product
+## Minimum Viable Product
 - Eye Detection:
     - [ ] HAAR cascade
         - [ ] Working principle
