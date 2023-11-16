@@ -27,6 +27,14 @@ Many Greeks believe that her eyes were beams of light known to provide insight t
     - [ ] Interactive GUI
     - [ ] Custom settings
 
+## CLI Messages
+```
+[+] : Operation success / Processing  
+[?] : Awaiting user input
+[!] : Error in user input
+[-] : System error
+```
+
 ## Disclaimer
 Effective Date: 16/11/2023
 
