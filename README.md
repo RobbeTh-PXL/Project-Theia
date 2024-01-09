@@ -8,7 +8,7 @@ Many Greeks believe that her eyes were beams of light known to provide insight t
 
 ## Minimum Viable Product
 - Eye Detection:
-    - [ ] HAAR cascade
+    - [ ] AI model
         - [ ] Working principle
     - [ ] Track subject
 - Gimbal:
