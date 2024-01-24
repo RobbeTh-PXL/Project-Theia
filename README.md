@@ -1,6 +1,10 @@
 # Project Theia
 **The High-energy Eye Illumination Apparatus** ~ *A laser pointer that aims for the eyes*
 
+<p align="center">
+  <img src="https://github.com/RobbeTh-PXL/Project-Theia/blob/dev/Media/Theia.png?raw=true" />
+</p>
+
 ## Mythology
 Theia is known as the goddess of sight. <br>
 Many Greeks believe that her eyes were beams of light known to provide insight to mortals. <br>
