@@ -12,7 +12,7 @@ im_width = 640
 im_height = 480
 im_width_center = im_width / 2
 im_height_center = im_height / 2
-deadzone = 10
+deadzone = 20
 
 sg.theme('Black')
 programIcon = 'Media/Theia.png'
@@ -59,12 +59,16 @@ def get_camera_list():
     camera_list = []
     index = 0
 
-    while True:
+    while index < 10:
         cap = cv.VideoCapture(index)
-        if cap is None or not cap.isOpened():
-            break
-        else:
+        # if cap is None or not cap.isOpened():
+        #     break
+        if  cap.read()[0]:
             camera_list.append(index)
+
+        #     break
+        # else:
+        #     camera_list.append(index)
         cap.release()
         index += 1
 
@@ -177,9 +181,10 @@ def main():
     blank_screen = True
     cap = None
     arduino = None
+    tm = cv.TickMeter()
     
     while True:
-        event, values = window.read(timeout=20)
+        event, values = window.read(timeout=5)
 
         if event == 'Exit' or event == sg.WIN_CLOSED:
             if arduino is not None:
@@ -232,7 +237,7 @@ def main():
         elif record:
             hasFrame, frame = cap.read()
             
-            tm = cv.TickMeter()
+            
             if not hasFrame:
                 sg.popup('ERROR: Invalid Source, No Frames Grabbed', title='SYSTEM ERROR', keep_on_top= True, icon=programIcon)
                 recording_failed = True
@@ -257,5 +262,5 @@ def main():
                 window['image'].update(data=imgbytes)
                 tm.reset()
 
-
-main()
+if __name__ == "__main__":
+    main()
