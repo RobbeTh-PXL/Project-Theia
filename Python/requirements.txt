@@ -1,3 +1,4 @@
 opencv-python
 PySimpleGUI
 numpy
+pyserial
