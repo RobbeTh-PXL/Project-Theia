@@ -12,7 +12,7 @@ im_width = 640
 im_height = 480
 im_width_center = im_width / 2
 im_height_center = im_height / 2
-deadzone = 10
+deadzone = 20
 
 sg.theme('Black')
 programIcon = 'Media/Theia.png'
@@ -59,12 +59,16 @@ def get_camera_list():
     camera_list = []
     index = 0
 
-    while True:
+    while index < 10:
         cap = cv.VideoCapture(index)
-        if cap is None or not cap.isOpened():
-            break
-        else:
+        # if cap is None or not cap.isOpened():
+        #     break
+        if  cap.read()[0]:
             camera_list.append(index)
+
+        #     break
+        # else:
+        #     camera_list.append(index)
         cap.release()
         index += 1
 
@@ -80,6 +84,7 @@ def find_active_ports():
 
 def visualize(image, results, box_color=(0, 255, 0), text_color=(0, 0, 255), fps=None):
     output = image.copy()
+    formatted_str = '0 0\n'
     landmark_color = [
         (255,   0,   0), # right eye
         (  0,   0, 255), # left eye
@@ -176,10 +181,10 @@ def main():
     blank_screen = True
     cap = None
     arduino = None
-    enable_motion = False
+    tm = cv.TickMeter()
     
     while True:
-        event, values = window.read(timeout=20)
+        event, values = window.read(timeout=5)
 
         if event == 'Exit' or event == sg.WIN_CLOSED:
             if arduino is not None:
@@ -232,7 +237,7 @@ def main():
         elif record:
             hasFrame, frame = cap.read()
             
-            tm = cv.TickMeter()
+            
             if not hasFrame:
                 sg.popup('ERROR: Invalid Source, No Frames Grabbed', title='SYSTEM ERROR', keep_on_top= True, icon=programIcon)
                 recording_failed = True
@@ -250,12 +255,12 @@ def main():
                 frame, movePos = visualize(frame, results, fps=tm.getFPS())
 
                 #print(movePos, end='')
-                if enable_motion and arduino is not None:
+                if arduino is not None:
                     arduino.write(bytes(movePos, 'utf-8'))
 
                 imgbytes = cv.imencode('.png', frame)[1].tobytes()
                 window['image'].update(data=imgbytes)
                 tm.reset()
 
-
-main()
+if __name__ == "__main__":
+    main()
