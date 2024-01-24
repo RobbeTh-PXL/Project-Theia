@@ -80,6 +80,7 @@ def find_active_ports():
 
 def visualize(image, results, box_color=(0, 255, 0), text_color=(0, 0, 255), fps=None):
     output = image.copy()
+    formatted_str = '0 0\n'
     landmark_color = [
         (255,   0,   0), # right eye
         (  0,   0, 255), # left eye
@@ -176,7 +177,6 @@ def main():
     blank_screen = True
     cap = None
     arduino = None
-    enable_motion = False
     
     while True:
         event, values = window.read(timeout=20)
@@ -250,7 +250,7 @@ def main():
                 frame, movePos = visualize(frame, results, fps=tm.getFPS())
 
                 #print(movePos, end='')
-                if enable_motion and arduino is not None:
+                if arduino is not None:
                     arduino.write(bytes(movePos, 'utf-8'))
 
                 imgbytes = cv.imencode('.png', frame)[1].tobytes()
