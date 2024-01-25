@@ -12,24 +12,24 @@ Many Greeks believe that her eyes were beams of light known to provide insight t
 
 ## Minimum Viable Product
 - Eye Detection:
-    - [ ] AI model
-        - [ ] Working principle
-    - [ ] Track subject
+    - [x] AI model
+        - [x] Working principle
+    - [x] Track subject
 - Gimbal:
-    - [ ] Move to target pos
-    - [ ] Custom design
+    - [x] Move to target pos
+    - [x] Custom design
 - UI:
-    - [ ] CLI
+    - [x] CLI
 
 ## Full Product
 - Eye Detection:
     - [ ] Model retrofitting
-    - [ ] Multiple subjects
+    - [x] Multiple subjects
 - Gimbal:
     - [ ] Adaptive speed
 - UI:
-    - [ ] Interactive GUI
-    - [ ] Custom settings
+    - [x] Interactive GUI
+    - [x] Custom settings
 
 ## CLI Messages
 ```
